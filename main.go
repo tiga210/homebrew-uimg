@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 	"uimg/api"
 	"uimg/model"
 )
@@ -30,10 +31,15 @@ func main() {
 		return
 	}
 
+	fmt.Println(filesNames)
 	for _, f := range filesNames {
-		status, imgUrl := api.UploadImg(f, c.Token, c.Host)
-		if status {
-			fmt.Println(imgUrl)
+		if strings.HasPrefix(f, "http") {
+			fmt.Println(f)
+		} else {
+			status, imgUrl := api.UploadImg(f, c.Token, c.Host)
+			if status {
+				fmt.Println(imgUrl)
+			}
 		}
 	}
 

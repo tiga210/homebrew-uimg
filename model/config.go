@@ -24,8 +24,8 @@ func getDirAndPath() (string, string) {
 	if err != nil {
 		panic(err)
 	}
-	configDir := sysUser.HomeDir + "/.uimg"
-	configPath := configDir + "/config.json"
+	configDir := sysUser.HomeDir + "/.config"
+	configPath := configDir + "/uimg.json"
 	return configDir, configPath
 }
 
